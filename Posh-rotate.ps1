@@ -46,7 +46,7 @@ function Compress-And-Archive {
         $ZipFilePath = "$FolderPath.zip"
 
         # Compress the folder using 7zip with higher compression level (-mx9)
-        Start-Process -FilePath $7ZipExe -ArgumentList "a -tzip -mx9 `"$ZipFilePath`" `"$FolderPath`"" -Wait
+        Start-Process -FilePath $7ZipExe -ArgumentList "a -tzip `"$ZipFilePath`" `"$FolderPath`"" -Wait
 
         Write-Host "Folder $FolderPath has been compressed to $ZipFilePath with higher compression"
 
