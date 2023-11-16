@@ -76,7 +76,7 @@ function Compress-And-Archive {
 # Define Paths to process
 $PathsToProcess = @(
     'D:\deviceLogs\',
-    'D:\deviceLogs - Copy'
+    'D:\serverlogs'
     # Add more paths as needed
 )
 
