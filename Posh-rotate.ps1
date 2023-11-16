@@ -90,3 +90,13 @@ foreach ($folder in $NestedFolders) {
 }
 
 Write-Host "Files moved to $ArchiveFolder, nested folders compressed"
+
+# Clean up zip files older than 60 days in _Archive folder.
+
+Write-Host "House cleaning - Remove zip files older than 60 days in _Archive folder"
+$logZipFiles = Get-ChildItem -Path $ArchiveFolder -File -Filter *.zip | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-60) }
+
+foreach ($zipFile in $logZipFiles) {
+    Remove-Item -Path $zipFile.FullName -Force
+    Write-Host "7zip file $($zipFile.FullName) has been removed."
+}
